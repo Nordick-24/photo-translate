@@ -19,7 +19,7 @@ python3 main.py
 
 ---
 
-####This Program use:
+#### This Program use:
 - pytesseract--> https://pypi.org/project/pytesseract/
 - captcha--> https://pypi.org/project/captcha/
 - kivy fraemwork--> https://pypi.org/project/Kivy/
@@ -29,6 +29,7 @@ python3 main.py
 - pyTelegramBotAPI--> https://pypi.org/project/pyTelegramBotAPI/
 - requests--> https://pypi.org/project/requests/
 - transalte--> https://pypi.org/project/translate/
+##### Thank you guys
 
 ---
 
