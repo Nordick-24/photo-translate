@@ -14,24 +14,26 @@ from kivy.uix.textinput import TextInput
 
 
 def transalt(self, lang):
-    root = tk.Tk()
-    root.withdraw()
-    image_path = filedialog.askopenfilename()
+    try:
+        root = tk.Tk()
+        root.withdraw()
+        image_path = filedialog.askopenfilename()
     
-    if lang == "English":
-        read_language = "eng"
-        translate_lang = "en"
+        if lang == "English":
+            read_language = "eng"
+            translate_lang = "en"
 
-    elif lang == "Greek":
+        elif lang == "Greek":
+            read_language = "ell"
+            translate_lang = "el"
 
-        read_language = "ell"
-        translate_lang = "el"
+        row = pytesseract.image_to_string(Image.open(image_path), lang=read_language)
+        transalator = Translator(from_lang=translate_lang, to_lang="ru")
+        data = transalator.translate(row)
+        self.set_data_label(data)
 
-    row = pytesseract.image_to_string(Image.open(image_path), lang=read_language)
-    transalator = Translator(from_lang=translate_lang, to_lang="ru")
-    data = transalator.translate(row)
-    self.set_data_label(data)
-
+    except AttributeError:
+        pass
 # Here Function finish
 
 KV = """
@@ -52,19 +54,19 @@ MyBL:
         Button:                
                 text: "English Transalte"
                 bold: True
-                background_color:(1,0,0,.5)
+                background_color:(1,0,1)
                 size_hint: (1,0.5)
                 on_press: root.selectphoto()
         Button:
                 text: "Greek Transalte"
                 bold: True
-                background_color:(1,0,0)
+                background_color:(1,0,1)
                 size_hint: (1,0.5)
                 on_press: root.Greek()
         Button:
                 text: "Russian Read"
                 bold: True
-                background_color:(0,1,1)
+                background_color:(1,0,1)
                 size_hint: (1,0.5)
                 on_press: root.read()
 """
