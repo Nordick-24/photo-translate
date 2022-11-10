@@ -11,12 +11,10 @@ from telebot import types
 from pytesseract import pytesseract
 from captcha.image import ImageCaptcha
 
-
 api_token = os.getenv("TELEGRAM_KEY")
 bot = telebot.TeleBot(api_token)
 logger.add("info.log", format="{time} {level} {message}", level="INFO") #Create a log file
-"""Parameters for a programm"""
-
+#Set paramethers for a programm
 
 try:
     """Connect to Database"""
@@ -27,8 +25,8 @@ try:
         database=db_name
     )
     database.autocommit = True
-
     cursor = database.cursor()
+    # Connect and Settup Database
 
 except Exception as _ex:
     logger.error(f"Thing in Database: {_ex}")
@@ -57,9 +55,12 @@ def captcha_function(message, bot):
         if message.text == captcha_text:
             unban_user(message.from_user.id)
 
+#Needed functions for a ban system
+
 try:
     try:
-        logger.info("Started Successfully!")
+        logger.info("Started Successfully!") # Than User can know about program working.
+
         def get_user_photo(message):
             """Download Photo with the text from user."""
             fileID = message.photo[-1].file_id
@@ -92,7 +93,7 @@ try:
 
                     data = pytesseract.image_to_string(Image.open('image.jpg'), lang=user_lang)
 
-                    if (not(data and data.strip())):
+                    if (not(data and data.strip())): # If photo empty
                         logger.info(f"Someone send empty foto, ID:{message.from_user.id}")
                         data = "Program Can't find any text!"
                         

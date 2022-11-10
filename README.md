@@ -19,6 +19,19 @@ python3 main.py
 
 ---
 
+####This Program use:
+- pytesseract--> https://pypi.org/project/pytesseract/
+- captcha--> https://pypi.org/project/captcha/
+- kivy fraemwork--> https://pypi.org/project/Kivy/
+- loguru--> https://pypi.org/project/loguru/
+- Pillow--> https://pypi.org/project/Pillow/
+- psycopg2--> https://pypi.org/project/psycopg2/
+- pyTelegramBotAPI--> https://pypi.org/project/pyTelegramBotAPI/
+- requests--> https://pypi.org/project/requests/
+- transalte--> https://pypi.org/project/translate/
+
+---
+
 ## You need More Languages?
 Step 1: Find The language code name on site:
 https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
