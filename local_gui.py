@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
@@ -31,6 +33,7 @@ def transalt(self, lang):
         transalator = Translator(from_lang=translate_lang, to_lang="ru")
         data = transalator.translate(row)
         self.set_data_label(data)
+
 
     except AttributeError:
         pass
@@ -81,11 +84,15 @@ class MyBL(BoxLayout):
         transalt(self, 'Greek')
 
     def read(self):
-        root = tk.Tk()
-        root.withdraw()
-        image_path = filedialog.askopenfilename()
-        data = pytesseract.image_to_string(Image.open(image_path), lang="rus")
-        self.set_data_label(data)
+        try:
+            root = tk.Tk()
+            root.withdraw()
+            image_path = filedialog.askopenfilename()
+            data = pytesseract.image_to_string(Image.open(image_path), lang="rus")
+            self.set_data_label(data)
+
+        except AttributeError:
+            pass
         
     def set_data_label(self, data):
         self.data_label += str(data) + "\n"
