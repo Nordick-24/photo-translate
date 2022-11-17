@@ -10,6 +10,29 @@ from translate import Translator
 from telebot import types
 from pytesseract import pytesseract
 from captcha.image import ImageCaptcha
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+import asyncio
+
+def translate(text):
+    driver = webdriver.Firefox()
+    driver.get("https://translate.google.com/")
+    element = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div/div/div[2]/div[1]/div[3]/div[1]/div[1]/form[2]/div/div/button""")
+    time.sleep(2.5)
+    element.click()
+
+    search_bar = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[1]/span/span/div/textarea""")
+    russian_transl = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[1]/c-wiz/div[5]/button/div[3]""")
+    russian_transl.click()
+
+    search_button = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[2]/input""")
+    search_button.send_keys('Russian')
+
+    russian_buttin = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[4]/div/div[1]""")
+    russian_buttin.click()
+
+    search_bar.send_keys(text)
 
 
 api_token = os.getenv("TELEGRAM_KEY")
@@ -99,18 +122,9 @@ try:
                     bot.send_message(message.chat.id, data, parse_mode='html')
                     bot.send_message(message.chat.id, "Processing...", parse_mode='html')
 
-                    if message.text == 'Greek':
-                        translator = Translator(from_lang="el", to_lang="ru")
-                        translation = translator.translate(data)
+                    translate(data)
 
-                    elif message.text == 'English':
-                        translator = Translator(from_lang="en", to_lang='ru')
-                        translation = translator.translate(data)
-
-                    else:
-                        translation = "Thank you!"
-
-                    bot.send_message(message.chat.id, translation, parse_mode='html')
+                    bot.send_message(message.chat.id, data, parse_mode='html')
 
                 except UnboundLocalError:
                     """Bug Number. Ban because if use it many time use it it can crash system because, processing need many resorses! """

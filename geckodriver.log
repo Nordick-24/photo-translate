@@ -1,0 +1,310 @@
+1668619553490	geckodriver	INFO	Listening on 127.0.0.1:48563
+1668619553501	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "53611" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileFMQQkB"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668619554441	Marionette	INFO	Marionette enabled
+1668619554446	Marionette	INFO	Listening on port 37119
+Read port: 37119
+WebDriver BiDi listening on ws://127.0.0.1:53611
+1668619554557	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileFMQQkB/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53611/devtools/browser/e5b2714c-35b5-40d5-b0c3-775e611745a6
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1668619647128	geckodriver	INFO	Listening on 127.0.0.1:48319
+1668619647132	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "40113" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilecbSPc9"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668619648035	Marionette	INFO	Marionette enabled
+1668619648040	Marionette	INFO	Listening on port 41563
+WebDriver BiDi listening on ws://127.0.0.1:40113
+Read port: 41563
+1668619648372	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilecbSPc9/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:40113/devtools/browser/98d79c4d-0140-427b-8498-e66e1fea0072
+1668619683670	geckodriver	INFO	Listening on 127.0.0.1:48565
+1668619683673	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "59033" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileCW3DNV"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668619684556	Marionette	INFO	Marionette enabled
+1668619684559	Marionette	INFO	Listening on port 40283
+Read port: 40283
+WebDriver BiDi listening on ws://127.0.0.1:59033
+1668619684651	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileCW3DNV/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59033/devtools/browser/d86d0367-ea34-4641-a761-1bce2f613b3d
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 576: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1668619687411	Marionette	INFO	Stopped listening on port 41563
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+1668619694522	Marionette	INFO	Stopped listening on port 40283
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+Sandbox: Unexpected EOF, op 0 flags 00 path /proc/cpuinfo
+1668619868235	geckodriver	INFO	Listening on 127.0.0.1:40661
+1668619868238	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "40407" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilecSbwhi"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668619869075	Marionette	INFO	Marionette enabled
+1668619869080	Marionette	INFO	Listening on port 39603
+Read port: 39603
+WebDriver BiDi listening on ws://127.0.0.1:40407
+1668619869197	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilecSbwhi/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:40407/devtools/browser/7bd4f261-335b-4205-83fb-05113ee5d940
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1668690189805	geckodriver	INFO	Listening on 127.0.0.1:47337
+1668690190333	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "40383" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileWmYOCC"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668690191890	Marionette	INFO	Marionette enabled
+1668690191905	Marionette	INFO	Listening on port 45211
+Read port: 45211
+[Parent 2201, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:2201): IBUS-WARNING **: 15:03:12.097: Unable to connect to ibus: Could not connect: Connection refused
+WebDriver BiDi listening on ws://127.0.0.1:40383
+1668690192177	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileWmYOCC/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:40383/devtools/browser/68665331-297d-41c4-b28f-f643d2eddbe1
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1668690413156	geckodriver	INFO	Listening on 127.0.0.1:33083
+1668690413159	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "55293" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile8Ukz1l"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668690414036	Marionette	INFO	Marionette enabled
+1668690414041	Marionette	INFO	Listening on port 45243
+Read port: 45243
+[Parent 2654, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:2654): IBUS-WARNING **: 15:06:54.095: Unable to connect to ibus: Could not connect: Connection refused
+WebDriver BiDi listening on ws://127.0.0.1:55293
+1668690414136	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile8Ukz1l/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55293/devtools/browser/fd41e3eb-789d-4912-9461-9db3901d15e9
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1668690544070	geckodriver	INFO	Listening on 127.0.0.1:35167
+1668690544073	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "57945" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile5kQsne"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668690544991	Marionette	INFO	Marionette enabled
+1668690544996	Marionette	INFO	Listening on port 40655
+[Parent 3636, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:3636): IBUS-WARNING **: 15:09:05.052: Unable to connect to ibus: Could not connect: Connection refused
+WebDriver BiDi listening on ws://127.0.0.1:57945
+Read port: 40655
+1668690545195	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile5kQsne/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57945/devtools/browser/bffdf905-83a6-4d8a-bfcb-4b49bf6a10a2
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://translate.google.com."
+1668690679756	geckodriver	INFO	Listening on 127.0.0.1:57963
+1668690679760	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "35869" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileLOFnKP"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668690680626	Marionette	INFO	Marionette enabled
+1668690680631	Marionette	INFO	Listening on port 38439
+Read port: 38439
+[Parent 3992, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:3992): IBUS-WARNING **: 15:11:20.701: Unable to connect to ibus: Could not connect: Connection refused
+WebDriver BiDi listening on ws://127.0.0.1:35869
+1668690680785	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileLOFnKP/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:35869/devtools/browser/c23c1b26-8611-4ecb-816c-e8c524d9849d
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1668690686222	Marionette	INFO	Stopped listening on port 40655
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1668690823686	geckodriver	INFO	Listening on 127.0.0.1:41511
+1668690823690	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "42935" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilewLgCNq"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668690824773	Marionette	INFO	Marionette enabled
+1668690824780	Marionette	INFO	Listening on port 44961
+Read port: 44961
+[Parent 4391, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:4391): IBUS-WARNING **: 15:13:44.835: Unable to connect to ibus: Could not connect: Connection refused
+WebDriver BiDi listening on ws://127.0.0.1:42935
+1668690824873	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilewLgCNq/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:42935/devtools/browser/0562ed99-d7de-4824-9048-4e778fb9d44d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1668690971743	geckodriver	INFO	Listening on 127.0.0.1:47341
+1668690971746	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "37411" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilePosrHe"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668690972744	Marionette	INFO	Marionette enabled
+1668690972750	Marionette	INFO	Listening on port 37665
+[Parent 4795, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:4795): IBUS-WARNING **: 15:16:12.814: Unable to connect to ibus: Could not connect: Connection refused
+WebDriver BiDi listening on ws://127.0.0.1:37411
+Read port: 37665
+1668690973030	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilePosrHe/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:37411/devtools/browser/f2bc1110-b61f-494d-b1b7-3f20f4b47773
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1668691010044	geckodriver	INFO	Listening on 127.0.0.1:42227
+1668691010048	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "57745" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilewaU7nQ"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668691011001	Marionette	INFO	Marionette enabled
+1668691011006	Marionette	INFO	Listening on port 40617
+Read port: 40617
+[Parent 5097, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:5097): IBUS-WARNING **: 15:16:51.065: Unable to connect to ibus: Could not connect: Connection refused
+WebDriver BiDi listening on ws://127.0.0.1:57745
+1668691011106	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilewaU7nQ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57745/devtools/browser/3e3d4534-8d71-47bf-860a-5ef542f44337
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+1668691078895	geckodriver	INFO	Listening on 127.0.0.1:41849
+1668691078898	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "37963" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilefqbOhi"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668691079764	Marionette	INFO	Marionette enabled
+1668691079769	Marionette	INFO	Listening on port 41723
+Read port: 41723
+[Parent 5590, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:5590): IBUS-WARNING **: 15:17:59.822: Unable to connect to ibus: Could not connect: Connection refused
+WebDriver BiDi listening on ws://127.0.0.1:37963
+1668691079869	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilefqbOhi/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:37963/devtools/browser/2328b23f-ab75-4330-b4e9-ed2c4b65b560
+1668691085109	Marionette	INFO	Stopped listening on port 40617
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+Sandbox: Unexpected EOF, op 0 flags 00 path /proc/cpuinfo
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+JavaScript error: , line 0: uncaught exception: Object
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1668691212304	geckodriver	INFO	Listening on 127.0.0.1:50175
+1668691212307	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "37169" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile94Izyk"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668691213204	Marionette	INFO	Marionette enabled
+1668691213209	Marionette	INFO	Listening on port 34715
+[Parent 6112, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:6112): IBUS-WARNING **: 15:20:13.262: Unable to connect to ibus: Could not connect: Connection refused
+WebDriver BiDi listening on ws://127.0.0.1:37169
+Read port: 34715
+1668691213483	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile94Izyk/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:37169/devtools/browser/cd72453e-dde8-4ce9-ab81-61c0f78de947
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1668691250279	Marionette	INFO	Stopped listening on port 34715
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1668691416763	geckodriver	INFO	Listening on 127.0.0.1:32857
+1668691417272	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "33983" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile84R5C9"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668691418342	Marionette	INFO	Marionette enabled
+1668691418347	Marionette	INFO	Listening on port 36753
+Read port: 36753
+[Parent 6641, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:6641): IBUS-WARNING **: 15:23:38.398: Unable to connect to ibus: Could not connect: Connection refused
+WebDriver BiDi listening on ws://127.0.0.1:33983
+1668691418446	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile84R5C9/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:33983/devtools/browser/134df7ca-4e4f-4167-a776-954b77e21488
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1668691612344	geckodriver	INFO	Listening on 127.0.0.1:39519
+1668691612860	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "52209" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilee4nkir"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668691613904	Marionette	INFO	Marionette enabled
+1668691613908	Marionette	INFO	Listening on port 34321
+[Parent 7134, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:7134): IBUS-WARNING **: 15:26:53.963: Unable to connect to ibus: Could not connect: Connection refused
+Read port: 34321
+WebDriver BiDi listening on ws://127.0.0.1:52209
+1668691614008	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilee4nkir/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52209/devtools/browser/fb072aa2-c6de-4caf-8158-c52a701e05bf
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+1668691715355	Marionette	INFO	Stopped listening on port 34321
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+Sandbox: Unexpected EOF, op 0 flags 00 path /proc/cpuinfo
+1668691733663	geckodriver	INFO	Listening on 127.0.0.1:48479
+1668691734163	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "57447" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile8zxsq5"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1668691735083	Marionette	INFO	Marionette enabled
+1668691735089	Marionette	INFO	Listening on port 43289
+[Parent 7659, Main Thread] WARNING: Unable to connect to ibus: Could not connect: Connection refused: 'glib warning', file /build/firefox-RrvMcb/firefox-106.0.5+build1/toolkit/xre/nsSigHandlers.cpp:167
+
+(firefox:7659): IBUS-WARNING **: 15:28:55.147: Unable to connect to ibus: Could not connect: Connection refused
+WebDriver BiDi listening on ws://127.0.0.1:57447
+Read port: 43289
+1668691735284	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile8zxsq5/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57447/devtools/browser/9bfc6d4f-eb97-43e2-aca3-e0227780e2d8
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://consent.google.com."
+JavaScript error: resource://gre/actors/AutoScrollChild.jsm, line 64: TypeError: node.closest(...).constructor.name is undefined
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
