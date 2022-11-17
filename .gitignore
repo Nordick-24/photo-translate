@@ -3,3 +3,4 @@ env
 __pycache__
 info.log
 .idea
+geckodriver.log
