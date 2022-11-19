@@ -17,31 +17,62 @@ import asyncio
 import pyperclip
 
 
+have_old_transalte = False
 driver = webdriver.Firefox()
 driver.get("https://translate.google.com/")
-element = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div/div/div[2]/div[1]/div[3]/div[1]/div[1]/form[2]/div/div/button""")
+element = driver.find_element(By.XPATH, """
+/html/body/c-wiz/div/div/div/div[2]/div[1]/div[3]/div[1]/div[1]/form[2]/div/div/button
+""")
 logger.info("Server is almost up...")
-time.sleep(1.5)
+time.sleep(4) # If browser don't load all needest , he died
+
 element.click()
 
-search_bar = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[1]/span/span/div/textarea""")
-russian_transl = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[1]/c-wiz/div[5]/button/div[3]""")
-russian_transl.click()
+translate_input = driver.find_element(By.XPATH, """
+        /html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[1]/span/span/div/textarea
+        """)
+select_language_input = driver.find_element(By.XPATH, """
+        /html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[1]/c-wiz/div[5]/button/div[3]
+        """)
+select_language_input.click()
 
-search_button = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[2]/input""")
-search_button.send_keys('Russian')
-russian_buttin = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[4]/div/div[1]""")
-russian_buttin.click()
-browser_running = True
+find_language = driver.find_element(By.XPATH, """
+        /html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[2]/input
+        """)
+find_language.send_keys('Russian')
+select_russian = driver.find_element(By.XPATH, """
+        /html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[4]/div/div[1]
+        """)
+select_russian.click()
 
 def translate(text, bot, message):
-    search_bar.send_keys(text)
-    time.sleep(10)
-    copy_answer = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[2]/div/div[8]/div/div[4]/div[2]/div/span/button/div[3]""")
-    copy_answer.click()
-    answer = pyperclip.paste()
-    bot.send_message(message.chat.id, answer)
+    global have_old_transalte
+    if have_old_transalte == False:
+        translate_input.send_keys(text)
+        time.sleep(10)
+        copy_answer = driver.find_element(By.XPATH, """
+                /html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[2]/div/div[8]/div/div[4]/div[2]/div/span/button/div[3]
+                """)
+        copy_answer.click()
+        answer = pyperclip.paste()
+        bot.send_message(message.chat.id, answer)
+        have_old_transalte = True
 
+    else:
+        delete_old_translation = driver.find_element(By.XPATH, """
+        /html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[1]/div[1]/div/div/span/button/div[3]
+        """)
+        delete_old_translation.click()
+        translate_input.send_keys(text)
+        time.sleep(10)
+        copy_answer = driver.find_element(By.XPATH, """
+        /html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[2]/div/div[8]/div/div[4]/div[2]/div/span/button/div[3]
+        """)
+        copy_answer.click()
+        answer = pyperclip.paste()
+        bot.send_message(message.chat.id, answer)
+
+    
     #url = driver.current_url
 
 api_token = os.getenv("TELEGRAM_KEY")
@@ -90,7 +121,7 @@ def captcha_function(message, bot):
 
 try:
     try:
-        logger.info("Started Successfully!")
+        logger.info("Server is working!")
 
         def get_user_photo(message):
             """Download Photo with the text from user."""
@@ -128,8 +159,7 @@ try:
                         logger.info(f"Someone send empty foto, ID:{message.from_user.id}")
                         data = "Program Can't find any text!"
                         
-                    bot.send_message(message.chat.id, data, parse_mode='html')
-                    bot.send_message(message.chat.id, "Processing...", parse_mode='html')
+                    bot.send_message(message.chat.id, "Processing...It's 10 seconds or less", parse_mode='html')
                     translate(data, bot, message)
 
                 except UnboundLocalError:
@@ -193,7 +223,6 @@ try:
 
     finally:
         try:
-
             os.remove("image.jpg")
 
         except FileNotFoundError:
@@ -214,7 +243,6 @@ finally:
         pass
     except FileNotFoundError:
         pass
-
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
