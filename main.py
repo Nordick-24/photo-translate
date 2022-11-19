@@ -14,26 +14,35 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 import asyncio
+import pyperclip
 
-def translate(text):
-    driver = webdriver.Firefox()
-    driver.get("https://translate.google.com/")
-    element = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div/div/div[2]/div[1]/div[3]/div[1]/div[1]/form[2]/div/div/button""")
-    time.sleep(2.5)
-    element.click()
 
-    search_bar = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[1]/span/span/div/textarea""")
-    russian_transl = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[1]/c-wiz/div[5]/button/div[3]""")
-    russian_transl.click()
+driver = webdriver.Firefox()
+driver.get("https://translate.google.com/")
+element = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div/div/div[2]/div[1]/div[3]/div[1]/div[1]/form[2]/div/div/button""")
+logger.info("Server is almost up...")
+time.sleep(1.5)
+element.click()
 
-    search_button = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[2]/input""")
-    search_button.send_keys('Russian')
+search_bar = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[1]/span/span/div/textarea""")
+russian_transl = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[1]/c-wiz/div[5]/button/div[3]""")
+russian_transl.click()
 
-    russian_buttin = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[4]/div/div[1]""")
-    russian_buttin.click()
+search_button = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[2]/input""")
+search_button.send_keys('Russian')
+russian_buttin = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[4]/div/div[1]""")
+russian_buttin.click()
+browser_running = True
 
+def translate(text, bot, message):
     search_bar.send_keys(text)
+    time.sleep(10)
+    copy_answer = driver.find_element(By.XPATH, """/html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[2]/div/div[8]/div/div[4]/div[2]/div/span/button/div[3]""")
+    copy_answer.click()
+    answer = pyperclip.paste()
+    bot.send_message(message.chat.id, answer)
 
+    #url = driver.current_url
 
 api_token = os.getenv("TELEGRAM_KEY")
 bot = telebot.TeleBot(api_token)
@@ -121,10 +130,7 @@ try:
                         
                     bot.send_message(message.chat.id, data, parse_mode='html')
                     bot.send_message(message.chat.id, "Processing...", parse_mode='html')
-
-                    translate(data)
-
-                    bot.send_message(message.chat.id, data, parse_mode='html')
+                    translate(data, bot, message)
 
                 except UnboundLocalError:
                     """Bug Number. Ban because if use it many time use it it can crash system because, processing need many resorses! """
