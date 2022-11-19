@@ -147,6 +147,9 @@ try:
                     if message.text == 'Greek':
                         user_lang = "ell"
 
+                    elif message.text == 'hm':
+                        user_lang = "tur"
+
                     elif message.text == 'Russian':
                         user_lang = "rus"
 
@@ -158,7 +161,9 @@ try:
                     if (not(data and data.strip())):
                         logger.info(f"Someone send empty foto, ID:{message.from_user.id}")
                         data = "Program Can't find any text!"
+                        bot.send_message(message.chat.id, data)
                         
+
                     bot.send_message(message.chat.id, "Processing...It's 10 seconds or less", parse_mode='html')
                     translate(data, bot, message)
 
@@ -197,7 +202,8 @@ try:
                     greekbutton = types.KeyboardButton('Greek')
                     englishbutton = types.KeyboardButton('English')
                     russianbutton = types.KeyboardButton('Russian')
-                    markup.add(greekbutton, englishbutton, russianbutton)
+                    turkishbutton = types.KeyboardButton('hm')
+                    markup.add(greekbutton, englishbutton, turkishbutton, russianbutton)
                     bot.send_message(message.chat.id, "select language:", parse_mode='html', reply_markup=markup)
 
                     @bot.message_handler()
