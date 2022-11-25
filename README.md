@@ -5,8 +5,8 @@
 ##### Just run the installation script
 
 ```
-git clone https://github.com/Nordick-24/TelePyTransl.git
-cd Telegram-Transalte
+git clone https://github.com/Nordick-24/photo-translate
+cd photo-translate
 bash install.sh
 export TELEGRAM_KEY="pasteyourkeyhere"
 python3 main.py

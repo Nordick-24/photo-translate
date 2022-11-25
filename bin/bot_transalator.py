@@ -6,26 +6,24 @@ import psycopg2
 from PIL import Image
 from loguru import logger
 from settings.db_config import host, user, password, db_name 
-from translate import Translator
 from telebot import types
 from pytesseract import pytesseract
 from captcha.image import ImageCaptcha
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-import asyncio
 import pyperclip
 
 
-have_old_transalte = False
+have_to_delete_old_translate = False
 driver = webdriver.Firefox()
 driver.get("https://translate.google.com/")
-element = driver.find_element(By.XPATH, """
+close_cookie_message = driver.find_element(By.XPATH, """
 /html/body/c-wiz/div/div/div/div[2]/div[1]/div[3]/div[1]/div[1]/form[2]/div/div/button
 """)
-time.sleep(4) # If browser don't load all needest , he died
+time.sleep(4)  # If browser don't load all needest, he died
 
-element.click()
+close_cookie_message.click()
 
 translate_input = driver.find_element(By.XPATH, """
         /html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[1]/span/span/div/textarea
@@ -44,9 +42,12 @@ select_russian = driver.find_element(By.XPATH, """
         """)
 select_russian.click()
 
+
 def translate(text, bot, message):
-    global have_old_transalte
-    if have_old_transalte == False:
+    """Translate input text"""
+    global have_to_delete_old_translate
+
+    if have_to_delete_old_translate == False:
         translate_input.send_keys(text)
         time.sleep(10)
         copy_answer = driver.find_element(By.XPATH, """
@@ -55,7 +56,7 @@ def translate(text, bot, message):
         copy_answer.click()
         answer = pyperclip.paste()
         bot.send_message(message.chat.id, answer)
-        have_old_transalte = True
+        have_to_delete_old_translate = True
 
     else:
         delete_old_translation = driver.find_element(By.XPATH, """
@@ -71,12 +72,10 @@ def translate(text, bot, message):
         answer = pyperclip.paste()
         bot.send_message(message.chat.id, answer)
 
-    
-    #url = driver.current_url
 
 api_token = os.getenv("TELEGRAM_KEY")
 bot = telebot.TeleBot(api_token)
-logger.add("info.log", format="{time} {level} {message}", level="INFO") #Create a log file
+logger.add("info.log", format="{time} {level} {message}", level="INFO")  #Create a log file
 """If we start this thing on server , programm can died , and we need log"""
 
 try:
@@ -103,9 +102,10 @@ def unban_user(userid):
     logger.info(f"User {userid} UnBanned.")
 
 def captcha_function(message, bot):
-    captcha_sett = ImageCaptcha(width = 280, height = 90)
+    """Make and send captcha photo for banned user"""
+    captcha_sett = ImageCaptcha(width=280, height=90)
     letters = string.ascii_lowercase
-    captcha_text =  ''.join(random.choice(letters) for i in range(5))
+    captcha_text = ''.join(random.choice(letters) for long in range(5))
 
     captcha = captcha_sett.generate(captcha_text)
     captcha_sett.write(captcha_text, 'captcha.png')
@@ -118,6 +118,22 @@ def captcha_function(message, bot):
         if message.text == captcha_text:
             unban_user(message.from_user.id)
 
+def read_language(message):
+    """Know from user from what language need read"""
+    if message.text == 'Greek':
+        user_lang = "ell"
+
+    elif message.text == 'Turkish':
+        user_lang = "tur"
+
+    elif message.text == 'Russian':
+        user_lang = "rus"
+
+    elif message.text == 'English':
+        user_lang = "eng"
+
+    return user_lang
+
 try:
     try:
         def get_user_photo(message):
@@ -128,62 +144,39 @@ try:
 
             with open("image.jpg", "wb") as newfile:
                 newfile.write(downloaded_file)
-#Here Function finish.
 
-        def main_function(message):
+        def read_text_from_image(message):
             """Select Language and Read The text from user image."""
-            global database
-            global cursor
-
             cursor.execute(f"select * from banned where userid = '{message.from_user.id}'")
             row_main = cursor.fetchall()
             len_main = len(row_main)
 
             if len_main == 0:
                 try:
-                    if message.text == 'Greek':
-                        user_lang = "ell"
-
-                    elif message.text == 'Turkish':
-                        user_lang = "tur"
-
-                    elif message.text == 'Russian':
-                        user_lang = "rus"
-
-                    elif message.text == 'English':
-                        user_lang = "eng"
-
-                    data = pytesseract.image_to_string(Image.open('image.jpg'), lang=user_lang)
+                    data = pytesseract.image_to_string(Image.open('image.jpg'), lang=read_language(message))
 
                     if (not(data and data.strip())):
                         logger.info(f"Someone send empty foto, ID:{message.from_user.id}")
                         data = "Program Can't find any text!"
                         bot.send_message(message.chat.id, data)
                         
-
                     bot.send_message(message.chat.id, "Processing...It's 10 seconds or less", parse_mode='html')
                     translate(data, bot, message)
 
                 except UnboundLocalError:
-                    """Bug Number. Ban because if use it many time use it it can crash system because, processing need many resorses! """
+                    """Bug Number.Ban because if use it many time use it it can crash system because, processing need many resorses! """
                     bot.send_message(message.chat.id, "It's rule number 1 , it's not allowed, you are banned!")
                     logger.info(f"User with id {message.from_user.id} try kill programm!")
                     ban_user(message.from_user.id)
                     logger.info("Because he try use bag number 1 str 97")
 
 
-#Here Function Finished
-
         @bot.message_handler(commands=['start'])
         def start(message):
             """When user type start command start this thing."""
-
-            global database
-            global cursor
-
             ban_row = cursor.execute(f"select userid from banned where userid = '{message.from_user.id}'")
-            ban_rowd = cursor.fetchall()
-            lenq = len(ban_rowd)
+            ban_row = cursor.fetchall()
+            lenq = len(ban_row)
         
             if lenq == 0: 
                 start_message = "What's up and welcome to TelePyTransl , just send me image"
@@ -205,10 +198,13 @@ try:
 
                     @bot.message_handler()
                     def get_user_text(message):
-                        main_function(message)
+                        read_text_from_image(message)
 
             elif lenq != 0:
-                bot.send_message(message.chat.id, "You are banned!", parse_mode='html')
+                bot.send_message(message.chat.id, """You are banned!,
+                 TO unbun you send message /unblock
+                  or write to helper bot t.me/TelePyTranslHelperBot.
+                  """, parse_mode='html')
                 logger.info(f"Banned user with id {message.from_user.id} send some message.")
 
         @bot.message_handler(commands=['rules'])
@@ -221,9 +217,6 @@ try:
         def unblock(message):
             captcha_function(message, bot)
                         
-
-        #bot.polling(none_stop=True) #Start bot
-
     finally:
         try:
             os.remove("image.jpg")
@@ -246,6 +239,3 @@ finally:
         pass
     except FileNotFoundError:
         pass
-
-#if __name__ == '__main__':
-    #bot.polling(none_stop=True)
