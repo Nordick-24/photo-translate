@@ -15,6 +15,8 @@ import time
 import pyperclip
 
 
+#if You start it from bin direcotiry comment srting number 8 and uncomment string numbe
+
 have_to_delete_old_translate = False
 driver = webdriver.Firefox()
 driver.get("https://translate.google.com/")

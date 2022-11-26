@@ -7,8 +7,7 @@
 ```
 git clone https://github.com/Nordick-24/photo-translate
 cd photo-translate
-bash install.sh
-export TELEGRAM_KEY="pasteyourkeyhere"
+pip3 install -r requeirements.txt
 python3 main.py
 ```
 ---
@@ -28,8 +27,7 @@ python3 main.py
 - psycopg2--> https://pypi.org/project/psycopg2/
 - pyTelegramBotAPI--> https://pypi.org/project/pyTelegramBotAPI/
 - requests--> https://pypi.org/project/requests/
-- transalte--> https://pypi.org/project/translate/
-##### Thank you guys
+#### Thank you guys
 
 ---
 
@@ -41,10 +39,10 @@ user_lang = codename"
 Step 3: On start image add name of language
 Step 4: Last "apt install tesseract-ocr-languagecode"
 
-#### Write on python3.8.10 <img align="left" alt="Python" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" />
-#### Work in linux <img align="left" alt="Linux" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/linux/linux.png" />
-#### Working with docker <img align="left" alt="Docker" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" />
-#### Used Database PostgreSql <img align="left" alt="PostgreSql" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" />
+#### Write on python3.8.10 <img align="left" alt="Python" width="20px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" />
+#### Work in linux <img align="left" alt="Linux" width="20px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/linux/linux.png" />
+#### Working with docker <img align="left" alt="Docker" width="20px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" />
+#### Used Database PostgreSql <img align="left" alt="PostgreSql" width="20px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" />
 
 ### My Helper
 https://github.com/ppolushkin Thank You!

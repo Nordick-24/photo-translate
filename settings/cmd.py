@@ -1,7 +1,7 @@
 import os
 import psycopg2
 from loguru import logger
-from config import host, user, password, db_name
+from config import host, user, password, db_name  #Here Linter detect error, but it's wrong,because we start program from .. directory
 from getpass import getpass
 
 logger.info("Welcome to admin panel!")
@@ -50,8 +50,6 @@ try:
             logger.error("Passwords don't much!")
 
 
-
-
 except Exception as _ex:
     logger.error(f"Database Error: {_ex}")
 
@@ -59,3 +57,4 @@ except Exception as _ex:
 finally:
     cursor.close()
     database.close()
+

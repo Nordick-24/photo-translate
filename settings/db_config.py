@@ -1,4 +1,4 @@
 host="127.0.0.1"
 user="postgres"
-password="""your postgres password"""
+password="""Your DB password"""
 db_name="pyteletransl"
