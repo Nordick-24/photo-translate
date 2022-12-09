@@ -11,7 +11,6 @@ import pytesseract
 import threading
 import tkinter as tk
 from tkinter import filedialog
-from translate import Translator
 from kivy.uix.textinput import TextInput
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -45,7 +44,6 @@ select_russian = driver.find_element(By.XPATH, """
         /html/body/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[4]/div/div[1]
         """)
 select_russian.click()
-
 
 def transalt(self, lang):
     try:
@@ -115,7 +113,7 @@ MyBL:
 
 class MyBL(BoxLayout):
     data_label = StringProperty("PyTeleTransl Gui")
-    
+
     def selectphoto(self):
         transalt(self, "English")
 

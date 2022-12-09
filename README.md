@@ -31,9 +31,9 @@ python3 main.py
 
 ---
 
+
 ## You need More Languages?
-Step 1: Find The language code name on site:
-https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+Step 1: Find The language code name on [these](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) site.
 Step 2: On Function "from_language" add "if message.text == "language":
 user_lang = codename"
 Step 3: On start image add name of language
