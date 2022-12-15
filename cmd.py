@@ -1,7 +1,7 @@
 import os
 import psycopg2
 from loguru import logger
-from config import host, user, password, db_name  #Here Linter detect error, but it's wrong,because we start program from .. directory
+from configs.db_config import host, user, password, db_name  #Here Linter detect error, but it's wrong,because we start program from .. directory
 from getpass import getpass
 
 logger.info("Welcome to admin panel!")

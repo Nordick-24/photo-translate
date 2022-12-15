@@ -1,7 +1,5 @@
 import os
-from gtts import gTTS
-import random
-import string
+import sys
 import telebot
 import psycopg2
 from PIL import Image
@@ -9,7 +7,6 @@ from loguru import logger
 from configs.db_config import host, user, password, db_name
 from telebot import types
 from pytesseract import pytesseract
-from captcha.image import ImageCaptcha
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
@@ -47,22 +44,11 @@ del close_cookie_message, select_language_input, find_language, select_russian
 
 
 @logger.catch()
-def tell_text(date, bot, user_lang, message) -> None:
-    """Tell text, save it to file and send it"""
-    read = gTTS(text=date, lang=user_lang, slow=False)
-    read.save("sound.mp3")
-
-    bot.send_message(message.chat.id, "It's gonna read like:")
-    sound = open('sound.mp3', 'rb')
-    bot.send_audio(message.chat.id, sound)
-
-
-@logger.catch()
 def translate(text: str, bot, message) -> None:
     """Translate input text"""
     global have_to_delete_old_translate
 
-    if have_to_delete_old_translate == False:
+    if have_to_delete_old_translate is False:
         translate_input.send_keys(text)
         time.sleep(10)
         copy_answer = driver.find_element(By.XPATH, """
@@ -86,14 +72,14 @@ def translate(text: str, bot, message) -> None:
         copy_answer.click()
         answer = pyperclip.paste()
         bot.send_message(message.chat.id, answer)
-        
+
 
 api_token = os.getenv("TELEGRAM_KEY")
 bot = telebot.TeleBot(api_token)
 logger.add("log_file,json",
-        format      ="{time} {level} {message}",
-        level       ="INFO", rotation="1 week",
-        compression ="zip", serialize=True)
+        format="{time} {level} {message}",
+        level="INFO", rotation="1 week",
+        compression="zip", serialize=True)
 
 
 try:
@@ -111,82 +97,13 @@ try:
 except Exception as _ex:
     logger.error(f"Detect Database Error: {_ex}")
 
+try:
+    from bin.bot_tranlator import ban_system
+    from bin.bot_tranlator import sound
+    from bin.bot_tranlator import select_language
 
-@logger.catch()
-def ban_user(userid: str) -> None:
-    cursor.execute(f"insert into banned (userid) values ('{userid}')")
-    logger.info(f"User {userid} is banned.")
-
-
-@logger.catch()
-def unban_user(userid: str) -> None:
-    cursor.execute(f"delete from banned where userid = '{userid}'")
-    return logger.info(f"User {userid} UnBanned.")
-
-
-@logger.catch()
-def captcha_function(message, bot) -> None:
-    """Make and send captcha photo for banned user"""
-    captcha_sett = ImageCaptcha(width=280, height=90)
-    letters = string.ascii_lowercase
-    captcha_text = ''.join(random.choice(letters) for long in range(5))
-
-    captcha_sett.generate(captcha_text)
-    captcha_sett.write(captcha_text, 'captcha.png')
-
-    with open("captcha.png", "rb") as capcha_image:
-        bot.send_photo(message.chat.id, capcha_image)
-
-    del captcha_sett, letters, captcha_text
-
-    return logger.info("captcha function used")
-
-    @bot.message_handler()
-    @logger.catch()
-    def user_text(message):
-        if message.text == captcha_text:
-            unban_user(message.from_user.id)
-
-
-@logger.catch()
-def read_language(message, bot) -> str:
-    """Return user languages"""
-
-    try:
-        if message.text == 'Greek':
-            user_lang = "ell"
-
-        elif message.text == 'Turkish':
-            user_lang = "tur"
-
-        elif message.text == 'Russian':
-            user_lang = "rus"
-
-        elif message.text == 'English':
-            user_lang = "eng"
-
-        return user_lang
-
-    except UnboundLocalError:
-        bot.send_message(message.chat.id, "Sorry, it's unknow language!")
-
-
-@logger.catch()
-def read_sound(message) -> str:
-    if message.text == 'English':
-        sound_language="en"
-
-    elif message.text == 'Greek':
-        sound_language="el"
-
-    elif message.text == 'Russian':
-        sound_language="ru"
-
-    elif message.text == 'Turkish':
-        sound_language="tr"
-
-    return sound_language
-
+except ImportError:
+    pass
 try:
     try:
         @logger.catch()
@@ -208,7 +125,7 @@ try:
 
             if len_main == 0:
                 try:
-                    data = pytesseract.image_to_string(Image.open('image.jpg'), lang=read_language(message, bot))
+                    data = pytesseract.image_to_string(Image.open('image.jpg'), lang=select_language.read_language(message, bot))
 
                     if (not(data and data.strip())):
                         logger.info(f"Someone send empty foto, ID:{message.from_user.id}")
@@ -216,13 +133,13 @@ try:
                         bot.send_message(message.chat.id, data)
 
                     bot.send_message(message.chat.id, "Processing...It's 10 seconds or less", parse_mode='html')
-                    tell_text(data, bot, read_sound(message), message)
+                    sound.tell_text(data, bot, select_language.read_sound(message), message)
                     translate(data, bot, message)
 
                 except UnboundLocalError:
                     bot.send_message(message.chat.id, "Sorry, somethings wrong and system decided ban you!")
                     logger.warning(f"User with id {message.from_user.id} try kill programm!")
-                    ban_user(message.from_user.id)
+                    ban_system.ban_user(message.from_user.id)
                     logger.warning("Because he try use bag number 1 str 97")
 
 
@@ -275,7 +192,7 @@ try:
         @bot.message_handler(commands=['unblock'])
         @logger.catch()
         def unblock(message) -> None:
-            captcha_function(message, bot)
+            ban_system.captcha_function(message, bot)
 
     finally:
         try:

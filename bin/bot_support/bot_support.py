@@ -2,7 +2,7 @@ import telebot
 import os
 
 
-api_token = os.getenv("TELEGRAM_SUPP_TOKEN")
+api_token = os.getenv("TELEGRAM_SUPP_KEY")
 bot = telebot.TeleBot(api_token)
 
 
@@ -27,3 +27,4 @@ def start(message):
     @bot.message_handler(content_types=['photo'])
     def user_screenshot(message):
         get_user_photo(message, bot)
+
